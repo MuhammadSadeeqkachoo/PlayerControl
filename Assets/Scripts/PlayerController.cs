@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 5f;
+    private float speed = 100f;
     private Rigidbody player_rb;
     private float Range = 18 ;
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        player_rb.velocity = Vector3.zero;
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.x > Range)
         {
+
             transform.position = new Vector3(Range, 1.36f, transform.position.z);
         }
         else if (transform.position.x < -Range)
